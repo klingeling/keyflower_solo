@@ -87,9 +87,6 @@ Village tiles - the priorities for his “main” choices are as follows:
 -> choices
 
 === choices ===
-+ [Throw Dice]
-  Dice: {~1|2|3|4|5|6}. -> choices
-  
 + [New automa turn] -> turn
 
 + [No more keyples/actions] -> new_turn

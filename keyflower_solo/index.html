@@ -10,6 +10,16 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128285552-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128285552-1');
+</script>
+
     <script>
     function openNav() {
         document.getElementById("mySidenav").style.width = "180px";
@@ -94,7 +104,7 @@
                 <h3 class="written-in-ink"><a href="https://www.inklestudios.com/ink">WRITTEN IN INK</a></h3>
                 <h1>KeyFlower solo</h1>
                 <h2 class="hidden byline"></h2>
-                <h2>Adapted from Dale Buonocore (Elad at boardgamegeek.com).<br/>Original post found <a href="https://boardgamegeek.com/thread/944605/keyflower-solitaire">here</a>.Ink adaption by Leo.</h2>
+                <h2>Adapted from Dale Buonocore (Elad at boardgamegeek.com).<br/>Original post found <a href="https://boardgamegeek.com/thread/944605/keyflower-solitaire">here</a>.Ink adaption by Leo. Use dice menu on top right to roll dices/choose tiles</h2>
             </div>
         </div>
     </div>
@@ -104,13 +114,13 @@
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <a href="#" onclick="roll(this);return false;" data-dice="special:6hextiles">Tile:  <span class="dice-value"/></a>
-      <a href="#" onclick="roll(this);return false;" data-dice="range:1|4">D4: <span class="dice-value"/></a>
-      <a href="#" onclick="roll(this);return false;" data-dice="range:1|6">D6: <span class="dice-value"/></a>
-      <a href="#" onclick="roll(this);return false;" data-dice="range:1|8">D8: <span class="dice-value"/></a>
-      <a href="#" onclick="roll(this);return false;" data-dice="range:1|10">D10: <span class="dice-value"/></a>
-      <a href="#" onclick="roll(this);return false;" data-dice="range:1|12">D12: <span class="dice-value"/></a>
-      <a href="#" onclick="roll(this);return false;" data-dice="range:1|20">D20: <span class="dice-value"/></a>
-      <a href="#" onclick="roll(this);return false;" data-dice="values:Yes|No">Yes/No: <span class="dice-value"/></a>
+      <a href="#" onclick="roll(this);return false;" data-dice="range:1|4">D4: <span class="dice-value dice-value-box"/></a>
+      <a href="#" onclick="roll(this);return false;" data-dice="range:1|6">D6: <span class="dice-value dice-value-box"/></a>
+      <a href="#" onclick="roll(this);return false;" data-dice="range:1|8">D8: <span class="dice-value dice-value-box"/></a>
+      <a href="#" onclick="roll(this);return false;" data-dice="range:1|10">D10: <span class="dice-value dice-value-box"/></a>
+      <a href="#" onclick="roll(this);return false;" data-dice="range:1|12">D12: <span class="dice-value dice-value-box"/></a>
+      <a href="#" onclick="roll(this);return false;" data-dice="range:1|20">D20: <span class="dice-value dice-value-box"/></a>
+      <a href="#" onclick="roll(this);return false;" data-dice="values:Yes|No">Yes/No: <span class="dice-value dice-value-box"/></a>
       <hr/>
       <a href="#" onclick="rollAll();return false;">Reroll all</a>
     </div>

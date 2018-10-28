@@ -242,7 +242,7 @@ p.choice a {
 }
 
 .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: 8px 8px 8px 20px;
     text-decoration: none;
     font-size: 20px;
     color: #666;
@@ -279,8 +279,20 @@ p.choice a {
 }
 
 .dice-value {
-    float:right;
-    padding-right:10px;
+    float: right;
+    margin-right: 10px;
+}
+
+.dice-value-box {
+    margin-right: 18px;
+    width: 24px;
+    height: 24px;
+    padding-top: 3px;
+    font-size: 15px;
+    border: 1px solid #666;
+    -moz-border-radius:3px;
+    border-radius: 3px;
+    text-align: center;
 }
 
 hr {
