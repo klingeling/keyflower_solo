@@ -6,6 +6,8 @@ LIST turn_description = Spring=1, Summer=2, Fall=3, Winter=4
 -> start
 
 === start === 
+
+# CLASS: important
 SETUP
 
 1. Place all non-green workers in the bag. 
@@ -30,7 +32,8 @@ SETUP
 { turn_number > 4:
 	-> end
 }
-# CLASS: turn
+# CLASS: separator
+# CLASS: turn 
 Turn {turn_number} ({turn_description(turn_number)})
 
 + [It's automa's turn?] -> turn
@@ -87,13 +90,14 @@ Village tiles - the priorities for his “main” choices are as follows:
 + [Throw Dice]
   Dice: {~1|2|3|4|5|6}. -> choices
   
-+ [No more keyples/actions] -> new_turn
-
 + [New automa turn] -> turn
+
++ [No more keyples/actions] -> new_turn
 
 
 === end ===
 
+# CLASS: separator
 # CLASS: endgame
 End of game
 
@@ -102,4 +106,6 @@ Calculate points and post on BGG: https:\/\/boardgamegeek.com/thread/944605/keyf
 + New game?
     # RESTART
     -> END
+    
+    
 

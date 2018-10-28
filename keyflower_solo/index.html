@@ -8,20 +8,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+
+    <script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "180px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+
+    function rollAll(){
+        var elements=document.querySelectorAll("[data-dice]");
+        for (var i=0;i<elements.length;i++){
+            roll(elements[i]);
+        }
+    }
+    
+    function rollDice(diceElement){
+        var valueElement = diceElement.querySelector(".dice-value");
+        valueElement.innerHTML = resolveDice(diceElement.getAttribute("data-dice"));
+    }
+
+    function roll(diceElement){
+        var times=8;
+        var sleep=30;
+        var exec=function(){
+            rollDice(diceElement);
+            times--;
+            if (times){
+                setTimeout(exec,sleep);
+            }            
+        }
+        setTimeout(exec, sleep);
+    }
+
+    function resolveDice(diceType){
+        var type=diceType.substr(0,diceType.indexOf(':'));
+        var values=diceType.substr(diceType.indexOf(':')+1); 
+
+        var value ="";
+        
+        if (type==="values"){
+            var splitValues=values.split("|");
+            value = splitValues[Math.floor(Math.random()*splitValues.length)];
+        }
+        
+        if (type==="range"){
+            var splitValues=values.split("|");
+            var min = Number(splitValues[0]);
+            var max = Number(splitValues[1]);
+            value = Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        
+        if (type==="special"){
+            if (values=="6hextiles"){
+               value="<div style='font-size: 16px; line-height:15px;'>";
+               var selected=Math.floor(Math.random() * 6);
+               for (var i=0;i<6;i++){
+                   var color="#888";
+                   if (i==selected){
+                       var color="#6C6";
+                   }
+                   value+='<span style="color: '+color+';">&#x2B22;</span>';
+                   if (i==2){
+                       value+="<br/>"
+                   }
+               }
+               value+="</div>";
+            }
+        }
+
+        return value;
+    }
+    </script>
 
 </head>
 
 <body>
-
+    
     <div class="outerContainer">
-        <h3 class="written-in-ink"><a href="https://www.inklestudios.com/ink">WRITTEN IN INK</a></h3>
-        <div id="story" class="container">
+        <div id="story" class="container document paper">
             <div class="header">
+                <h3 class="written-in-ink"><a href="https://www.inklestudios.com/ink">WRITTEN IN INK</a></h3>
                 <h1>KeyFlower solo</h1>
                 <h2 class="hidden byline"></h2>
-                <h2>Adapted from Dale Buonocore (Elad at boardgamegeek.com). Original post found <a href="https://boardgamegeek.com/thread/944605/keyflower-solitaire">here</a>.Ink adaption by Leo.</h2>
+                <h2>Adapted from Dale Buonocore (Elad at boardgamegeek.com).<br/>Original post found <a href="https://boardgamegeek.com/thread/944605/keyflower-solitaire">here</a>.Ink adaption by Leo.</h2>
             </div>
         </div>
+    </div>
+
+    <span id="dicemenu" onclick="openNav()"><i class="fas fa-dice"></i></span>
+
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#" onclick="roll(this);return false;" data-dice="special:6hextiles">Tile:  <span class="dice-value"/></a>
+      <a href="#" onclick="roll(this);return false;" data-dice="range:1|4">D4: <span class="dice-value"/></a>
+      <a href="#" onclick="roll(this);return false;" data-dice="range:1|6">D6: <span class="dice-value"/></a>
+      <a href="#" onclick="roll(this);return false;" data-dice="range:1|8">D8: <span class="dice-value"/></a>
+      <a href="#" onclick="roll(this);return false;" data-dice="range:1|10">D10: <span class="dice-value"/></a>
+      <a href="#" onclick="roll(this);return false;" data-dice="range:1|12">D12: <span class="dice-value"/></a>
+      <a href="#" onclick="roll(this);return false;" data-dice="range:1|20">D20: <span class="dice-value"/></a>
+      <a href="#" onclick="roll(this);return false;" data-dice="values:Yes|No">Yes/No: <span class="dice-value"/></a>
+      <hr/>
+      <a href="#" onclick="rollAll();return false;">Reroll all</a>
     </div>
 
     <script src="ink.js"></script>

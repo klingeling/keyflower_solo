@@ -29,7 +29,7 @@ h2 {
     font-style: italic;
     font-family: sans-serif;
     font-weight: lighter;
-    color: #BBB;
+    color: #888;
 }
 
 .dark h2 {
@@ -45,15 +45,9 @@ h3.written-in-ink {
     font-size: 9pt;
     font-family: sans-serif;
     text-align: center;
-    font-weight: 700;
-    position: fixed;
-    display: block;
-    width: 100%;
     background: white;
     margin: 0;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    top: 0;
+    padding-bottom: 1em;
 }
 
 .dark h3.written-in-ink {
@@ -80,7 +74,6 @@ h3.written-in-ink {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    padding-top: 4em;
     background: white;
 }
 
@@ -90,7 +83,7 @@ h3.written-in-ink {
 
 p {
     font-size: 11pt;
-    color: #888;
+    color: #333;
     line-height: 1.4em;
     font-weight: lighter;
 }
@@ -152,9 +145,9 @@ p.choice {
 }
 
 /* first choice */
-:not(.choice) + .choice {
+/*:not(.choice) + .choice {
     padding-top: 1em; 
-}
+}*/
 
 
 p.choice a {
@@ -172,14 +165,17 @@ p.choice a {
     padding-bottom: 20px;
 }
 
+.separator {
+    border-top: 1px dashed #333;
+    margin-top: 1em;
+}
+
 .endgame {
     text-align: center;
-    border-top: 1px dashed #333;
     font-weight: bold;
 }
 .turn {
     font-weight: bold;
-    border-top: 1px dashed #333;
     text-align: center;
 }
 .important {
@@ -188,4 +184,107 @@ p.choice a {
 .hidden{
     visibility: hidden;
     display: none;
+}
+
+.document.paper
+{
+    position:relative;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.document.paper:before, .document.paper:after
+{
+    content:"";
+    position:absolute;
+    z-index:-1;
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:10px;
+    bottom:10px;
+    left:0;
+    right:0;
+    -moz-border-radius:100px / 10px;
+    border-radius:100px / 10px;
+}
+.document.paper:after
+{
+    right:10px;
+    left:auto;
+    -webkit-transform:skew(8deg) rotate(3deg);
+       -moz-transform:skew(8deg) rotate(3deg);
+        -ms-transform:skew(8deg) rotate(3deg);
+         -o-transform:skew(8deg) rotate(3deg);
+            transform:skew(8deg) rotate(3deg);
+}
+
+.choice{
+    padding:0.5em;
+    margin:0px;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.05) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.05) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.05) inset;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.05) inset;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #666;
+    display: block;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.sidenav a:hover {
+    color: #000000;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 12px;
+    font-size: 24px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+#dicemenu {
+    position: fixed;
+    left: 10;
+    top: 10;
+    width: 100%;
+    color: #666;
+    font-size:24px;
+    cursor: pointer;
+}
+
+.dice-value {
+    float:right;
+    padding-right:10px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0.2, 0.2, 0.2, 0), rgba(0.2, 0.2, 0.2, 0.75), rgba(0.2, 0.2, 0.2, 0));
 }
