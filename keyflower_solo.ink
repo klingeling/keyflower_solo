@@ -1,6 +1,6 @@
 //Keyflower solo interactive automa
 VAR turn_number = 0
-LIST turn_description = Spring=1, Summer=2, Fall=3, Winter=4
+LIST turn_description = 春季=1, 夏季=2, 秋季=3, 冬季=4
 # author: Adapted from Dale Buonocore (Elad at boardgamegeek.com). Original post found here.
 
 -> start
@@ -8,21 +8,21 @@ LIST turn_description = Spring=1, Summer=2, Fall=3, Winter=4
 === start === 
 
 # CLASS: important
-SETUP
+设置
 
-1. Place all non-green workers in the bag. 
-2. Place green workers to the side.
-3. Sort resources and place to the side.
-4. Draw 8 workers for you and 8 for the AP. 
-5. Sort season tiles.
-6. Randomly select home tile for you and AP. 
-7. Place 2 boat tiles in play area.
-8. Place the turn order tile in play area.
-9. Place 6 Spring tiles in play area.
-10. Draw 3 Winter tiles, look at them.
-11. Deal 3 random Winter tiles face-down.
-12. You are the Start Player in Spring.
-13. The game proceeds as in regular Keyflower.
+1. 将所有非绿色工人放置到布袋中。
+2. 将绿色工人放置在游戏区域的一旁。
+3. 将资源指示物按类型分类形成公共补给堆，并放置在游戏区域的一旁。
+4. 你和自动机各抽取8个工人。
+5. 将六边形板块按季节分类。
+6. 你和自动机随机获得一块家园板块。
+7. 将2块船只板块放置在游戏区域中。
+8. 将回合顺序板块放置在游戏区域中。
+9. 将6块春季板块放置在游戏区域中。
+10. 抽取三块冬季板块，然后查看它们。
+11. 随机分发3块面朝下的冬季板块。
+12. 你是春季的初始玩家。
+13. 游戏进行方式如同常规奇伍德花季号。
 
 -> new_turn
 
@@ -34,9 +34,9 @@ SETUP
 }
 # CLASS: separator
 # CLASS: turn 
-Turn {turn_number} ({turn_description(turn_number)})
+回合 {turn_number} ({turn_description(turn_number)})
 
-+ [It's automa's turn?] -> turn
++ [轮到自动机了？] -> turn
 
 
 === turn ===
@@ -62,45 +62,45 @@ Automa randomizes ... { shuffle:
 === center_tile ===
 
 # CLASS: important
-Center tiles: he prioritizes his “main” choices as follows:
+中央板块: 他对“主要”选择的优先顺序如下:
 
-1) Bidding on an open tile, with the Turn Order tile as the last option; 
-2) Outbidding you on one of the tiles;
-3) “Using” a tile, first prioritizing “his” (i.e., one where he currently has the highest bid), then shifting to "yours" if needed; 
-4) “Over-using” a tile (i.e., placing workers on one which already has at least one worker on it from a previous use) -- again, "his" first, then "yours" if needed. 
+1) 对公开的板块进行竞标，将“回合顺序”板块作为最后选择; 
+2) 在其中一块板块上高于你竞标;
+3) “使用”一块板块，首先优先考虑“他的”(比如他目前出价最高的板块)，然后在需要时转向“你的”; 
+4) “过度使用”一块板块(即将工人放置在之前使用过的至少有一个工人的板块上)——同样，首先是“他的”，如果需要，然后是“你的”。
 
-Within these “main” choices, his “particular” choices among otherwise equivalent options are determined by the following “priority-tree”: 
-1) the option which requires the smallest number of workers; 
-2) the option involving the worker color of which he currently has the most; 
-3) if there’s still a tie, use the D6 to make the final choice. Note that this “priority-tree” will similarly determine his “particular” choices when he is acting in your Home Village, below. 
+在这几个“主要”选择中，对于其他条件都相同的情况下，他会在这些“特定”选项中做出选择，而他的选择则是由以下这个“优先性树”所决定的: 
+1) 需要最少工人数量的选项;
+2) 涉及他当前拥有最多的工人颜色的选项; 
+3) 如果仍然平局，则使用D6来做出最终选择。请注意，这个“优先树”同样会在他在你的家园村庄行动时来决定他的特殊选择，下面将详细解释。
 
 -> choices
 
 === village_tile ===
 
 #CLASS: important
-Village tiles - the priorities for his “main” choices are as follows:
+村庄板块 - 他对“主要”选择的优先顺序如下:
 
-1) “Using” a tile. When there are more than 6 viable (i.e., empty and usable) tiles, I typically use the D6 by considering my Home tile as 1, then moving to the first ring of adjacent tiles, starting at the top and going clockwise, then to the second ring if necessary. (Another option would be to use a D10 or larger, and just "count down" each column going from left to right -- or even drawing a card from a straight deck would work, as this would provide a random number from 1-13);
-2) “Over-using” a tile, as described previously.
+1) “使用”一块板块。当有超过6个可供选择(即为空且可用)的磁砖时，我通常使用D6(六面骰) ，将我的家园板块视为1，然后从第一圈的相邻板块开始，从顶部开始并按顺时针方向移动，如果必要，再到第二圈。(另一个选项是可以使用D10或更大的骰子，从左到右"向下数"每一列; 甚至从一副连续的的牌中抽一张牌也可以，因为这样可以提供一个1-13的随机数);
+2) “过度使用”一块板块，如前所述。
 
 -> choices
 
 === choices ===
-+ [New automa turn] -> turn
++ [新的自动机回合] -> turn
 
-+ [No more keyples/actions] -> new_turn
++ [没有更多米宝/行动] -> new_turn
 
 
 === end ===
 
 # CLASS: separator
 # CLASS: endgame
-End of game
+游戏结束
 
-Calculate points and post on BGG: https:\/\/boardgamegeek.com/thread/944605/keyflower-solitaire
+计算积分并发布在 BGG 上: https:\/\/boardgamegeek.com/thread/944605/keyflower-solitaire
 
-+ New game?
++ 新游戏?
     # RESTART
     -> END
     
